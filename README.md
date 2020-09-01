@@ -14,16 +14,12 @@ form lists `A, b, c` from the coefficients to give as input to the simplex funct
 
 # About
 
-The simplex algorithm finds an optimal solution to the linear program by iteratively checking vertices of the convex polygonal region (feasible region) formed by the inequality. It can be shown mathematically that the optimal solution, if it exists, will be one of these vertices. This algorithm work into two phases.
+The simplex algorithm finds an optimal solution to the linear program by iteratively checking vertices of a convex polygonal region formed by the inequalities defining the linear program. It can be shown mathematically that the optimal solution, if it exists, will be one of these vertices. This algorithm work into two phases.
 
 ## Phase 1
 
-The original linear program (LP) is passed to `initialize_simplex` which uses the simplex algorithm on a modified version of the original LP to find an initial feasible solution (that is, a vertex on the convex polygon formed by the constraints). If no such vertex is found, there is no solutions to original LP.
+The original linear program (LP) is passed to `initialize_simplex` which uses the simplex algorithm on a modified version of the original LP to find an initial feasible solution (that is, a vertex on the convex polygon formed by the constraints). If no such vertex is found, then there is no solutions to original LP. If an initial feasible solution is found, this solution along with a modified, but equivalent form of the original LP is returned.
 
 ## Phase 2
 
-Given an initial feasible solution we iteratively move along neighboring vertices in the feasible region, each time choosing a neighboring vertex which increases the objective function (whose coefficients are stored in `c`).
-
-A vertex is given by a solution of inequality constraints, it's neighboring vertices (i.e. vertices which share an edge) will share all but one of the same inequality constraints. The `pivot` function chooses an appropriate inequality (and hence a neighboring vertex) which increases the objective function.
-
-The `simplex` function stops when no neighboring vertices can be found which result in an increase in the objective function.
+Given the initial feasible solution and equivalent LP returned from `initialize_simplex`, the `pivot` function chooses which neighboring vertex of the feasible region to consider in the next iteration of `simplex`. Each time choosing a neighboring vertex which increases the objective function (whose coefficients are stored in `c`). The `simplex` function stops when all neighboring vertices result in a decrease in the objective function.
