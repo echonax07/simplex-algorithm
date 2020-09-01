@@ -1,4 +1,4 @@
-# Implements the simplex algorithm using standard python3 libraries
+# Implements the simplex algorithm using standard python3
 
 # if |a-b| < tol then a and b are treated as equal
 tol = 1e-9
@@ -15,13 +15,13 @@ class Set():
         assert self.var[i] == var_1
         self.var[i] = var_2
         self.idx[var_2] = i
-    
+
     def add(self, new):
         i = len(self.var)
         self.var.append(new)
         assert self.var[i] == new
         self.idx[new] = i
-        
+
 
 def simplex(A, b, c):
     assert len(A) == len(b) and all([len(row) == len(c) for row in A]), "incorrect dimensions for input"
@@ -112,7 +112,7 @@ def initialize_simplex(A,b,c):
         if n+m in B.idx:
             # perform one pivot to make auxilliary variable nonbasic
             i, l = B.idx[n+m], n+m
-            e = next(e for e, j in N.idx.items() if abs(A[i][j]) > tol) 
+            e = next(e for e, j in N.idx.items() if abs(A[i][j]) > tol)
             N, B, A, b, c, v = pivot(N, B, A, b, c, v, l, e)
         # remove column corresponding to auxilliary variable
         col = N.idx[n+m]
