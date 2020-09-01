@@ -6,7 +6,9 @@ A python3 implementation of the two-phase simplex algorithm for solving linear p
 
 Given a linear program in standard form, i.e.
 
-![linprog](https://i.imgur.com/ZQegHSh.png)
+<p align="center">
+  <img src="https://i.imgur.com/ZQegHSh.png">
+</p>
 
 form lists `A, b, c` from the coefficients to give as input to the simplex function. Which will either return a bounded optimal solution (as a list of floats), print that there is no bounded optimal solution or print that there are no feasible solutions.
 
