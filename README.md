@@ -18,7 +18,7 @@ The simplex algorithm finds an optimal solution to the linear program by iterati
 
 ## Phase 1
 
-The original linear program (LP) is passed to `initialize_simplex` which attempts to solve a modified version of the original LP to find an initial feasible solution (that is, a vertex on the convex polygon formed by the constraints). If no such vertex is found, then there is no solutions to original LP. If an initial feasible solution is found, this solution along with a modified, but equivalent form of the original LP is returned.
+The original linear program (LP) is passed to `initialize_simplex` which attempts to solve a modified version of the original LP to find an initial feasible solution (that is, a vertex on the convex polygon formed by the constraints). If no such vertex is found, then there are no solutions to original LP. If an initial feasible solution is found, this solution along with a modified, but equivalent form of the original LP is returned.
 
 ## Phase 2
 
